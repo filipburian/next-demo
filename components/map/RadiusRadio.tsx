@@ -23,7 +23,7 @@ export const RadiusRadio = ({ handleRadiusChange }: Props) => {
                 checked={radius === "10"}
                 onChange={onOptionChange}
             />
-            <label htmlFor="small" className="mr-[10px]">10</label>
+            <label htmlFor="small" className="mr-[10px]">10m</label>
             <input
                 type="radio"
                 name="radius"
@@ -32,7 +32,7 @@ export const RadiusRadio = ({ handleRadiusChange }: Props) => {
                 checked={radius === "20"}
                 onChange={onOptionChange}
             />
-            <label htmlFor="normal" className="mr-[10px]">20</label>
+            <label htmlFor="normal" className="mr-[10px]">20m</label>
 
             <input
                 type="radio"
@@ -42,7 +42,7 @@ export const RadiusRadio = ({ handleRadiusChange }: Props) => {
                 checked={radius === "50"}
                 onChange={onOptionChange}
             />
-            <label htmlFor="medium" className="mr-[10px]">50</label>
+            <label htmlFor="medium" className="mr-[10px]">50m</label>
 
             <input
                 type="radio"
@@ -52,7 +52,7 @@ export const RadiusRadio = ({ handleRadiusChange }: Props) => {
                 checked={radius === "100"}
                 onChange={onOptionChange}
             />
-            <label htmlFor="large" className="mr-[10px]">100</label>
+            <label htmlFor="large" className="mr-[10px]">100m</label>
         </div>
     )
 }

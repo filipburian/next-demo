@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {MapContainer, TileLayer} from "react-leaflet";
+import {Circle, MapContainer, TileLayer} from "react-leaflet";
 import 'leaflet/dist/leaflet.css'
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css'
 
@@ -61,7 +61,7 @@ const Map = () => {
             </div>
           <MapContainer
             center={[50.2584, 19.0222]}
-            zoom={14}
+            zoom={16}
             scrollWheelZoom={false}
             style={{ height: "100%", width: "100%" }}
           >
@@ -71,6 +71,11 @@ const Map = () => {
                 attribution='Map data &copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, Imagery &copy; <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a>'
             />
             <LocationMarker location={location}/>
+              {location && (
+                  <Circle
+                  center={{lat:location.lat, lng: location.lng}}
+                  fillColor="blue"
+                  radius={radius}/>)}
           </MapContainer>
         </div>
     )
