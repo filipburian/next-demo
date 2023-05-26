@@ -10,6 +10,7 @@ import {LatLng} from "leaflet";
 import {RadiusRadio} from "@/components/map/RadiusRadio";
 import {GetResultButton} from "@/components/map/GetResultButton";
 import {fetchAvgPrice} from "@/utils/fetch-avg.price";
+import {fetchAvgPriceLocally} from "@/utils/fetch-avg-locally.price";
 
 const mapBoxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '';
 
@@ -40,7 +41,7 @@ const Map = () => {
     const handleFetchResult = async () => {
         if (location && radius) {
             try {
-                const data = await fetchAvgPrice({ lat: location.lat, long: location.lng, radiusKm: radius / 1000});
+                const data = await fetchAvgPriceLocally({ lat: location.lat, long: location.lng, radiusKm: radius / 1000});
                 setResult(data?.documents?.[0]?.avg_price ?? null);
             } catch (e) {
                 console.log(e);
@@ -52,7 +53,7 @@ const Map = () => {
     return (
         <div id="map" className="w-[500px] lg:w-[1000px] h-[500px] lg:h-[800px]">
             {result && <div>
-                <h4>{`Avg Price for given area: ${result}`}</h4>
+                <h4 className="text-red text-bold">{`Avg Price for given area: ${result}`}</h4>
             </div>
             }
             <div className="flex-col">
