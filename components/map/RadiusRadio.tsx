@@ -6,19 +6,14 @@ interface Props {
 export const RadiusRadio = ({ handleRadiusChange }: Props) => {
 
     const [radius, setRadius] = useState("10");
-
-    const onRadiusChange = (e:any) => {
-        setRadius(e.target.value);
+    const onOptionChange = e => {
+        setRadius(e.target.value)
         handleRadiusChange(Number(e.target.value));
     }
 
-    const onOptionChange = e => {
-        setRadius(e.target.value)
-    }
-
     return (
-        <div>
-            <h3>Select Radius</h3>
+        <div className="my-[10px]">
+            <h2 className="text-[20px]">Select Radius</h2>
 
             <input
                 type="radio"
@@ -28,7 +23,7 @@ export const RadiusRadio = ({ handleRadiusChange }: Props) => {
                 checked={radius === "10"}
                 onChange={onOptionChange}
             />
-            <label htmlFor="small">10</label>
+            <label htmlFor="small" className="mr-[10px]">10</label>
             <input
                 type="radio"
                 name="radius"
@@ -37,7 +32,7 @@ export const RadiusRadio = ({ handleRadiusChange }: Props) => {
                 checked={radius === "20"}
                 onChange={onOptionChange}
             />
-            <label htmlFor="normal">20</label>
+            <label htmlFor="normal" className="mr-[10px]">20</label>
 
             <input
                 type="radio"
@@ -47,7 +42,7 @@ export const RadiusRadio = ({ handleRadiusChange }: Props) => {
                 checked={radius === "50"}
                 onChange={onOptionChange}
             />
-            <label htmlFor="medium">50</label>
+            <label htmlFor="medium" className="mr-[10px]">50</label>
 
             <input
                 type="radio"
@@ -57,11 +52,7 @@ export const RadiusRadio = ({ handleRadiusChange }: Props) => {
                 checked={radius === "100"}
                 onChange={onOptionChange}
             />
-            <label htmlFor="large">100</label>
-
-            <p>
-                Select radius <strong>{radius}</strong>
-            </p>
+            <label htmlFor="large" className="mr-[10px]">100</label>
         </div>
     )
 }

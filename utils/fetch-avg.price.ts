@@ -4,7 +4,15 @@ const dApiCollection = process.env.NEXT_PUBLIC_MONGO_DAPI_COLLECTION;
 const dApiDatabase = process.env.NEXT_PUBLIC_MONGO_DAPI_DB;
 const dApiDataSource = process.env.NEXT_PUBLIC_MONGO_DAPI_DS;
 
-export const fetchAvgPrice = async ({ long, lat, radiusKm }: {long: number, lat: number, radiusKm: number}) => {
+
+export type Result = {
+  avg_price: number;
+}
+export type Data = {
+  documents: Result[];
+}
+
+export const fetchAvgPrice = async ({ long, lat, radiusKm }: {long: number, lat: number, radiusKm: number}): Promise<Data> => {
     const response = await fetch(
       dApiURL!!,
       {
