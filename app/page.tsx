@@ -1,7 +1,7 @@
 'use client';
 import dynamic from "next/dynamic";
 
-const Map = dynamic(() => import("../components/map/Map.tsx"), { ssr:false, loading: () => <p>Loading...</p>, })
+const Map = dynamic(() => import("../components/map/Map"), { ssr:false, loading: () => <p>Loading...</p>, })
 export default function Home() {
 
 

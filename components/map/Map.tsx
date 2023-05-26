@@ -11,7 +11,7 @@ import {RadiusRadio} from "@/components/map/RadiusRadio";
 import {GetResultButton} from "@/components/map/GetResultButton";
 import {fetchAvgPrice} from "@/utils/fetch-avg.price";
 
-const mapBoxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
+const mapBoxAccessToken = process.env.NEXT_PUBLIC_MAPBOX_TOKEN || '';
 
 const Map = () => {
     const [isMounted, setIsMounted] = useState(false);
@@ -65,7 +65,7 @@ const Map = () => {
             scrollWheelZoom={false}
             style={{ height: "100%", width: "100%" }}
           >
-            <SearchField apiKey={mapBoxAccessToken} handleLocationFound={handleLocationFound}/>
+            <SearchField apiKey={mapBoxAccessToken!} handleLocationFound={handleLocationFound}/>
             <TileLayer
                 url={`https://api.mapbox.com/styles/v1/mapbox/streets-v11/tiles/256/{z}/{x}/{y}@2x?access_token=${mapBoxAccessToken}`}
                 attribution='Map data &copy; <a href=&quot;https://www.openstreetmap.org/&quot;>OpenStreetMap</a> contributors, <a href=&quot;https://creativecommons.org/licenses/by-sa/2.0/&quot;>CC-BY-SA</a>, Imagery &copy; <a href=&quot;https://www.mapbox.com/&quot;>Mapbox</a>'

@@ -6,7 +6,7 @@ interface Props {
 export const RadiusRadio = ({ handleRadiusChange }: Props) => {
 
     const [radius, setRadius] = useState("10");
-    const onOptionChange = e => {
+    const onOptionChange = (e:any) => {
         setRadius(e.target.value)
         handleRadiusChange(Number(e.target.value));
     }

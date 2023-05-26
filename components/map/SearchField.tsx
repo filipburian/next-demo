@@ -2,7 +2,12 @@ import { GeoSearchControl, MapBoxProvider } from 'leaflet-geosearch';
 import { useMap } from 'react-leaflet';
 import {useEffect} from "react";
 import {LatLng} from "leaflet";
-export const SearchField = ({ apiKey, handleLocationFound }) => {
+
+interface Props {
+    apiKey: string;
+    handleLocationFound: any;
+}
+export const SearchField = ({ apiKey, handleLocationFound }: Props) => {
     const provider = new MapBoxProvider({
         params: {
             access_token: apiKey,

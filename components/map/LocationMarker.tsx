@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {LatLng} from "leaflet";
 
 interface Props {
-    defaultPosition: LatLng | null;
+    location: any;
 }
 export const LocationMarker = ({ location }: Props) => {
     const [position, setPosition] = useState<LatLng | null>(location)
