@@ -4,16 +4,16 @@ const dApiCollection = process.env.NEXT_PUBLIC_MONGO_DAPI_COLLECTION;
 const dApiDatabase = process.env.NEXT_PUBLIC_MONGO_DAPI_DB;
 const dApiDataSource = process.env.NEXT_PUBLIC_MONGO_DAPI_DS;
 
-const fetchAvgPrice = async ({ long, lat, radiusKm }: {long: number, lat: number, radiusKm: number}) => {
+export const fetchAvgPrice = async ({ long, lat, radiusKm }: {long: number, lat: number, radiusKm: number}) => {
     const response = await fetch(
-      dApiURL,
+      dApiURL!!,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Request-Headers': '*',
           'api-key':
-            dApiKey,
+            dApiKey!!,
           Accept: 'application/json',
         },
         // !
